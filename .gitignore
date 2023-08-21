@@ -1,0 +1,2 @@
+.pylintrc
+src/core/__pycache__/*

@@ -10,19 +10,21 @@ class Scraper:
     def fetch_html(self):
         """tries to get the html content from the base url"""
         try:
-            response: response = requests.get(self.base_url, timeout=5)
-            response.raise_for_status()  # Raise an exception for 4xx and 5xx errors
+            request_response: requests.Response = requests.get(self.base_url, timeout=5)
+            request_response.raise_for_status()  # Raise an exception for 4xx and 5xx errors
 
-            return response.text
+            return request_response.text
+        
         except requests.exceptions.RequestException as request_error:
-            print(f"Error fetching URL: {request_error}")
+            print(f"ERROR: {request_error}")
 
             return None
 
     def scrape_page(self):
         """fetches the html content from the base_url and returns it as a string"""
-        html_content: str = self.fetch_html()
+        html_content: str|None = self.fetch_html()
+
         if html_content:
             return html_content
         else:
-            return None
+            raise(TypeError("ERROR: No HTML content found!"))

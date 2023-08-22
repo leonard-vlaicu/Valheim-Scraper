@@ -1,47 +1,61 @@
+"""Armour module that contains the Armour class and its subclasses"""
 
-# class with constructor and methods for Armour
-# Armour has a name, type, quality, blocking and requirements and an image path
 
 class Armour:
-    def __init__(self, name: str, armourType: str, quality: int, blocking: int, requirements: dict, imagePath: str):
+    """Armour class that contains the attributes of the armour"""
+
+    def __init__(
+        self,
+        name: str,
+        armour_type: str,
+        quality: int,
+        blocking: int,
+        requirements: dict,
+        image_path: str,
+    ):
         self.name = name
-        self.armourType = armourType
+        self.armour_type = armour_type
         self.quality = quality
         self.blocking = blocking
         self.requirements = requirements
-        self.imagePath = imagePath
+        self.image_path = image_path
 
+    def get_armour_type(self) -> str:
+        """returns the armour type"""
+        return self.armour_type
 
-    def getArmourType(self) -> str:
-        return self.armourType
-
-    def getName(self) -> str:
+    def get_name(self) -> str:
+        """returns the name of the armour"""
         return self.name
-    
-    def getQuality(self) -> int:
+
+    def get_quality(self) -> int:
+        """returns the quality of the armour"""
         return self.quality
-    
-    def getBlocking(self) -> int:
+
+    def get_blocking(self) -> int:
+        """returns the blocking of the armour"""
         return self.blocking
-    
-    def getRequirements(self) -> dict:
+
+    def get_requirements(self) -> dict:
+        """returns the requirements of the armour"""
         return self.requirements
-    
-    def getImagePath(self) -> str:
-        return self.imagePath
+
+    def get_image_path(self) -> str:
+        """returns the image path of the armour"""
+        return self.image_path
 
     def __str__(self) -> str:
-        return self.name + " " + self.armourType + " " + self.quality + " " + self.blocking + " " + self.requirements + " " + self.imagePath
-    
-
-class LegArmour(Armour):
-    pass
-
-class ChestArmour(Armour):
-    pass
-
-class HeadArmour(Armour):
-    pass
-
-class CapeArmour(Armour):
-    pass
+        """returns the string representation of the armour"""
+        return (
+            self.name
+            + " "
+            + self.armour_type
+            + " "
+            + str(self.quality)
+            + " "
+            + str(self.blocking)
+            + " "
+            + str(self.requirements)
+            + " "
+            + self.image_path
+        )
